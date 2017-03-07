@@ -1,6 +1,30 @@
 <template>
 
   <div>
+    <div class="input-wrap">
+      <el-row :gutter="10">
+        <el-col :span="6">
+          <el-date-picker
+              type="date"
+              placeholder="Pick a day">
+            </el-date-picker>
+        </el-col>
+        <el-col :span="7">
+          <el-input placeholder="금액" type="number">
+            <el-select v-model="select" slot="prepend" placeholder="종류">
+              <el-option label="수익" value="1"></el-option>
+              <el-option label="지출" value="2"></el-option>
+            </el-select>
+          </el-input>
+        </el-col>
+        <el-col :span="9">
+          <el-input placeholder="내용"></el-input>
+        </el-col>
+        <el-col :span="2">
+          <el-button type="primary">등록</el-button>
+        </el-col>
+      </el-row>
+    </div>
     <el-table
     :data="dataList"
     border
@@ -88,6 +112,14 @@ export default {
 
 .el-button-group-wrap {
   text-align: center;
+}
+
+.input-wrap {
+  margin: 10px 0;
+}
+
+.el-select .el-input {
+  width: 80px;
 }
 
 </style>
